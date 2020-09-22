@@ -1,0 +1,12 @@
+#This is what you show as on Starmap.
+displayName: 'CHANGEME'
+#Change this to where pytesseract is installed. If you need help, message IHaveNoLife#6972 on discord
+pytesseractPath: C:\\Users\\alexc\\AppData\\Local\\Tesseract-OCR\\tesseract
+
+#turning this on saves what the program sees to a png. It can cause SSD wear on rubbish SSD's, so be wary
+saveImages: "False"
+
+#Don't change this unless someone told you to
+layerID: 'bcxwoIKlAUCSJAwq'
+layerName: 'Dev layer' #'Player positions'
+doUpload: 'True'
