@@ -1,18 +1,14 @@
-# Project Title
+# StarBeam
 
-One Paragraph Description of your Project
+Read ISAN data from your screen using OCR then upload it to Starmap so you can see your real time location and share it with others.
 
 ### Prerequisites
 
-The prerequsites needed for this project to work, software, libraries, etc (If unessessary, delete this section)
+WXPython, threading, sys, yaml, time, requests, mss, pyautogui, pytesseract, Pillow
 
-### Installing
+### Installing from exe or source
 
-A step-by-step guide of installing this project on a system, to allow easy on-boarding of developers (If unessessary, delete this section)
-
-## Tests Present
-
-Explain the tests present in this project (If unessessary, delete this section)
+Follow installation instructions [here](https://docs.google.com/document/d/190epPakN2LdaVdApvwuLCYBRv_lbDlnrL5V7GcmhKM0/edit?usp=sharing)
 
 ### Coding Style
 
@@ -20,23 +16,22 @@ Please include the coding styles present in this project (Note: This should be P
 
 ## Built With
 
-* Include
-* What
-* This
-* Project
-* Is
-* Built
-* With
-
+* Flask (Intermediatery Server API receive), with the waitress web server.
+* WXPython (Client GUI)
+* Python3 (Intermediatery Server + Client)
+* Requests (Intermediatery Server + Client API send)
+* PyTesseract (OCR)
 
 ## Authors
 
-Please include the people involved in this project in a bullted list
+IHaveNoLife#6972 on Discord and Starbase, AlexAndHisScripts everywhere else.
+
+BenCo#2544
 
 ## License
 
-Please contact Solon#4472 if you wish to license your project
+GNU General Public License.
 
 ## Acknowledgments
 
-General acknoledgments (If unessessary, delete this section)
+Strikeeaglechase for developing Starmap and it's bot API.
