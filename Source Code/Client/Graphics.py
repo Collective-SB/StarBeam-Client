@@ -71,7 +71,7 @@ class GUI(wx.Frame):
         sizer.Add(GUI.disclaimer)
 
         # Version
-        GUI.disclaimer = wx.StaticText(panel, label=" Closed Testing")
+        GUI.disclaimer = wx.StaticText(panel, label=" For Internal Collective Use Only. Do not distribute without permission.")
         GUI.disclaimer.SetForegroundColour("Red")
         sizer.Add(GUI.disclaimer)
 
