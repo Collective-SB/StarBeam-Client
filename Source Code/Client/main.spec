@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['main.py'],
-             pathex=['C:\\Users\\alexc\\Documents\\GitHub\\ISAN2ToOthers\\Source Code\\Client'],
+             pathex=['C:\\Users\\alexc\\Documents\\GitHub\\StarBeam-Client\\Source Code\\Client'],
              binaries=[],
              datas=[],
              hiddenimports=[],

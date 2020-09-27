@@ -6,7 +6,6 @@ import settings
 import time
 from PIL import Image
 
-
 class Coordinates:
     x = 0
     y = 0
@@ -19,20 +18,15 @@ class Coordinates:
 
     lastPushTime = 0
 
+    success = False
 
-def refresh_coordinates(image_to_process):
+
+def refresh_coordinates():
     image = screenshot()
-
-    # runs every other frame. Processing images gets results more often but less accurately, so I have it on every
-    # other so that if it does something stupid it'll hopefully be rectified
-    if image_to_process:
-        image = process_image(image)
 
     text = read_text(image)
 
     text = discard_from_text(text)
-
-    print(str(text))
 
     new_x, new_y, new_z = parse(text, "x"), parse(text, "y"), parse(text, "z")
 
@@ -50,11 +44,6 @@ def refresh_coordinates(image_to_process):
         print("Updating Z")
         Coordinates.z = new_z
         Coordinates.hasZUpdated = True
-
-    print("X: " + str(Coordinates.x))
-    print("Y: " + str(Coordinates.y))
-    print("Z: " + str(Coordinates.z))
-    print("------------------------")
 
     coordinates_display = ""
     coordinates_display = coordinates_display + "X: " + str(Coordinates.x)
@@ -93,9 +82,10 @@ def refresh_coordinates(image_to_process):
         Coordinates.hasYUpdated = False
         Coordinates.hasZUpdated = False
         Coordinates.do_push = False
-        return True
+        Coordinates.success = True
 
     else:
+        Coordinates.success = False
         return False
 
 
@@ -121,14 +111,6 @@ def screenshot():
             img = Image.frombytes("RGB", sct_img.size, sct_img.rgb, "raw")
 
             return img
-
-
-def process_image(image):
-    # Convert to binary, and yes this is from stack overflow
-    threshold = 128
-    result = image.convert('L').point(lambda x: 255 if x > threshold else 0, mode='1')
-    return result
-
 
 def read_text(image):
     pytesseract.pytesseract.tesseract_cmd = settings.Variables.pytesseractPath

@@ -52,11 +52,14 @@ def main():
 def refresh_coordinates_thread():
     time.sleep(2)
     Upload.new_ship(0,0,0,settings.Variables.layerName,settings.Variables.layerID)
+    nextGetTime = 0
     while True:
-        # 8 times a second
-        time.sleep(0.125)
-        success = OCR.refresh_coordinates(False)
-        if success:
+        if time.time() > nextGetTime:
+            nextGetTime = time.time() + 0.125
+            threading.Thread(target=OCR.refresh_coordinates()).start()
+
+        if OCR.Coordinates.success:
+            OCR.Coordinates.success = False
             # noinspection SpellCheckingInspection
             threading.Thread(target=Upload.move_ship, args=(
                 OCR.Coordinates.x, OCR.Coordinates.y, OCR.Coordinates.z, settings.Variables.layerName, settings.Variables.layerID)).start()
