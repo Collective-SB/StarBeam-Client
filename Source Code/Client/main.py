@@ -55,7 +55,7 @@ def refresh_coordinates_thread():
     nextGetTime = 0
     while True:
         if time.time() > nextGetTime:
-            nextGetTime = time.time() + 0.125
+            nextGetTime = time.time() + 0.2
             threading.Thread(target=OCR.refresh_coordinates()).start()
 
         if OCR.Coordinates.success:

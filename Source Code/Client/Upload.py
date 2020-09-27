@@ -3,7 +3,7 @@ import settings
 import Graphics
 
 class Vars:
-    baseUrl = "http://127.0.0.1:5000"
+    baseUrl = "http://173.212.194.49:5000"
     latestOnlineX = 0
     latestOnlineY = 0
     latestOnlineZ = 0
