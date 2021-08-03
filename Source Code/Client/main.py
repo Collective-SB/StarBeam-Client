@@ -44,6 +44,8 @@ def main():
 
     settings.Variables.doUpload = str(read_config("doUpload"))
 
+    settings.Variables.serverIP = read_config("serverIP")
+
     threading.Thread(target=refresh_coordinates_thread).start()
     threading.Thread(target=still_online_thread).start()
     Graphics.start_gui()

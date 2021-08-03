@@ -3,7 +3,7 @@ import settings
 import Graphics
 
 class Vars:
-    baseUrl = "http://173.212.194.49:5000"
+    baseUrl = settings.Variables.serverIP
     latestOnlineX = 0
     latestOnlineY = 0
     latestOnlineZ = 0

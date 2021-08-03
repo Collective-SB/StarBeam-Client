@@ -11,3 +11,5 @@ layerID: 'bcxwoIKlAUCSJAwq'
 #This doesn't do anything. It'll be removed, but I'm currently in change freeze before release.
 layerName: 'Dev layer'
 doUpload: 'True'
+
+serverIP: 'http://173.212.194.49:5000"'
