@@ -3,7 +3,6 @@ import settings
 import Graphics
 
 class Vars:
-    baseUrl = settings.Variables.serverIP
     latestOnlineX = 0
     latestOnlineY = 0
     latestOnlineZ = 0
@@ -18,7 +17,7 @@ def move_ship(x, y, z, layer, layerid):
     headers = {"xpos": str(x), "ypos": str(y), "zpos": str(z), "layername": layer, "layerid": layerid,
                "name": settings.Variables.displayName, "id" : Vars.shipID}
 
-    requests.post(Vars.baseUrl + "/modifyplayer", headers=headers)
+    requests.post(settings.Variables.serverIP + "/modifyplayer", headers=headers)
 
 
 def new_ship(x, y, z, layer, layerid):
@@ -30,7 +29,7 @@ def new_ship(x, y, z, layer, layerid):
     headers = {"xpos": str(x), "ypos": str(y), "zpos": str(z), "layername": layer, "layerid": layerid,
                "name": settings.Variables.displayName}
 
-    r = requests.post(Vars.baseUrl + "/newplayer", headers=headers)
+    r = requests.post(settings.Variables.serverIP + "/newplayer", headers=headers)
     Vars.shipID = r.text
     print("Assigned ID: " + Vars.shipID)
 
@@ -39,4 +38,4 @@ def still_online():
         return
     headers = {"id" : Vars.shipID}
 
-    requests.post(Vars.baseUrl + "/stillonline", headers=headers)
+    requests.post(settings.Variables.serverIP + "/stillonline", headers=headers)
